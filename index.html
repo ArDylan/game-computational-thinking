@@ -240,7 +240,7 @@
       transition: all 0.3s;
       letter-spacing: 1px;
       box-shadow: 0 4px 20px rgba(245, 200, 66, 0.4);
-      margin-top: 10px;
+      margin-top: 4px;
     }
 
     .btn-primary:hover {
@@ -438,7 +438,7 @@
 
     .level-node {
       position: relative;
-      width: clamp(90px, 18vw, 140px);
+      width: clamp(52px, 8vw, 72px);
       cursor: pointer;
       transition: transform 0.3s;
     }
@@ -480,7 +480,7 @@
 
     .node-number {
       font-family: 'Cinzel Decorative', cursive;
-      font-size: clamp(18px, 3.5vw, 28px);
+      font-size: clamp(12px, 2vw, 18px);
       font-weight: 900;
       color: white;
       text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
@@ -488,23 +488,23 @@
     }
 
     .node-icon {
-      font-size: clamp(20px, 4vw, 30px);
+      font-size: clamp(14px, 2.5vw, 20px);
       line-height: 1;
     }
 
     .level-badge {
       position: absolute;
-      top: -8px;
-      right: -8px;
-      width: 26px;
-      height: 26px;
+      top: -5px;
+      right: -5px;
+      width: 18px;
+      height: 18px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 14px;
-      border: 2px solid white;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+      font-size: 9px;
+      border: 1.5px solid white;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
     }
 
     .badge-lock {
@@ -540,13 +540,13 @@
 
     .node-label {
       text-align: center;
-      margin-top: 10px;
+      margin-top: 4px;
       max-width: clamp(100px, 20vw, 160px);
     }
 
     .node-name {
       font-family: 'Cinzel', serif;
-      font-size: clamp(9px, 1.5vw, 12px);
+      font-size: clamp(8px, 1vw, 10px);
       font-weight: 700;
       color: var(--gold-light);
       text-transform: uppercase;
@@ -555,7 +555,7 @@
     }
 
     .node-sub {
-      font-size: clamp(8px, 1.2vw, 10px);
+      font-size: clamp(7px, 0.9vw, 9px);
       color: rgba(232, 223, 192, 0.6);
       margin-top: 2px;
       line-height: 1.4;
@@ -1235,7 +1235,7 @@
       gap: 12px;
       flex-wrap: wrap;
       justify-content: center;
-      margin-top: 10px;
+      margin-top: 4px;
     }
 
     .btn-secondary {
@@ -1643,6 +1643,137 @@
         display: none;
       }
     }
+
+    /* ===== MODAL TUJUAN PEMBELAJARAN ===== */
+    .tujuan-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.82);
+      backdrop-filter: blur(8px);
+      z-index: 300;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .tujuan-overlay.hidden {
+      display: none;
+    }
+
+    .tujuan-card {
+      background: linear-gradient(145deg, #0a1628, #0d2245);
+      border: 2px solid var(--gold-dark);
+      border-radius: 24px;
+      padding: 40px 44px;
+      max-width: 560px;
+      width: 100%;
+      position: relative;
+      box-shadow: 0 0 60px rgba(245, 200, 66, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      text-align: center;
+      animation: tujuanIn 0.5s cubic-bezier(.22, 1, .36, 1) both;
+    }
+
+    @keyframes tujuanIn {
+      from {
+        opacity: 0;
+        transform: scale(0.88) translateY(24px);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    .tujuan-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
+      border-radius: 24px 24px 0 0;
+    }
+
+    .tujuan-icon {
+      font-size: 52px;
+      line-height: 1;
+      margin-bottom: 14px;
+      filter: drop-shadow(0 0 14px rgba(0, 180, 255, 0.7));
+      animation: crystalPulse 2s ease-in-out infinite;
+    }
+
+    .tujuan-tag {
+      display: inline-block;
+      background: linear-gradient(135deg, #7c3aed, #4f46e5);
+      border: 1px solid #a855f7;
+      border-radius: 20px;
+      padding: 5px 18px;
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #e0d0ff;
+      margin-bottom: 18px;
+    }
+
+    .tujuan-title {
+      font-family: 'Cinzel Decorative', cursive;
+      font-size: clamp(16px, 3vw, 22px);
+      color: var(--gold);
+      margin-bottom: 20px;
+      text-shadow: 0 0 18px rgba(245, 200, 66, 0.5);
+    }
+
+    .tujuan-divider {
+      width: 160px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 0 auto 20px;
+    }
+
+    .tujuan-text {
+      font-size: 13.5px;
+      line-height: 1.85;
+      color: #cfd8e8;
+      background: rgba(0, 180, 255, 0.05);
+      border: 1px solid rgba(0, 180, 255, 0.2);
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin-bottom: 28px;
+      text-align: left;
+    }
+
+    .tujuan-text strong {
+      color: var(--gold-light);
+      display: block;
+      margin-bottom: 8px;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .tujuan-btn {
+      background: linear-gradient(135deg, #c99a10, #f5c842, #c99a10);
+      border: none;
+      border-radius: 12px;
+      padding: 14px 40px;
+      font-family: 'Cinzel Decorative', cursive;
+      font-size: 14px;
+      font-weight: 700;
+      color: #0a1628;
+      cursor: pointer;
+      transition: all 0.3s;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 20px rgba(245, 200, 66, 0.4);
+    }
+
+    .tujuan-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(245, 200, 66, 0.6);
+      filter: brightness(1.1);
+    }
   </style>
 </head>
 
@@ -1676,7 +1807,7 @@
       </div>
       <div class="form-group">
         <label class="form-label" for="inputClass">🏰 Kelas / Kelompok</label>
-        <input class="form-input" id="inputClass" type="text" placeholder="Contoh: X IPA 1, X TKJ 2..."
+        <input class="form-input" id="inputClass" type="text" placeholder="Contoh: X PA 1, X PI..."
           autocomplete="off">
       </div>
       <button class="btn-primary" onclick="startGame()">⚔️ Mulai Petualangan!</button>
@@ -1812,11 +1943,11 @@
 
         <!-- SVG path connecting nodes -->
         <svg style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:visible;">
-          <path class="path-dashed" d="M 17% 52% Q 25% 35% 36% 28%" fill="none"/>
-          <path class="path-dashed" d="M 40% 25% Q 52% 18% 65% 18%" fill="none"/>
-          <path class="path-dashed" d="M 36% 28% Q 36% 45% 36% 68%" fill="none"/>
-          <path class="path-dashed" d="M 38% 70% Q 48% 72% 60% 68%" fill="none"/>
-          <path class="path-dashed" d="M 64% 65% Q 72% 60% 81% 58%" fill="none"/>
+          <path class="path-dashed" d="M 17% 52% Q 25% 35% 36% 28%" fill="none" />
+          <path class="path-dashed" d="M 40% 25% Q 52% 18% 65% 18%" fill="none" />
+          <path class="path-dashed" d="M 36% 28% Q 36% 45% 36% 68%" fill="none" />
+          <path class="path-dashed" d="M 38% 70% Q 48% 72% 60% 68%" fill="none" />
+          <path class="path-dashed" d="M 64% 65% Q 72% 60% 81% 58%" fill="none" />
         </svg>
 
       </div><!-- end map-world -->
@@ -2352,6 +2483,13 @@
     // ============================================================
     // PAGE NAVIGATION
     // ============================================================
+
+    function closeTujuan() {
+      document.getElementById('tujuanModal').classList.add('hidden');
+      showPage('page2');
+      renderMap();
+    }
+
     function showPage(id) {
       document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
       document.getElementById(id).classList.add('active');
@@ -2375,8 +2513,7 @@
       state.playerName = name;
       state.playerClass = cls;
       document.getElementById('headerPlayerName').textContent = '⚔️ ' + name;
-      showPage('page2');
-      renderMap();
+      document.getElementById('tujuanModal').classList.remove('hidden');
     }
 
     // ============================================================
@@ -2733,6 +2870,24 @@
       if (e.target === this) closeModal();
     });
   </script>
+
+  <!-- ===== MODAL TUJUAN PEMBELAJARAN ===== -->
+  <div class="tujuan-overlay hidden" id="tujuanModal">
+    <div class="tujuan-card">
+      <div class="tujuan-icon">🔷</div>
+      <div class="tujuan-tag">📚 Tujuan Pembelajaran</div>
+      <div class="tujuan-title">Sebelum Memulai Petualangan</div>
+      <div class="tujuan-divider"></div>
+      <div class="tujuan-text">
+        <strong>🎯 Capaian yang Akan Kamu Raih:</strong>
+        Peserta didik mampu menerapkan konsep <em style="color:var(--blue-glow)">berpikir komputasional</em> untuk
+        menganalisis masalah, menyusun solusi secara sistematis, serta mengomunikasikan langkah-langkah
+        penyelesaian masalah secara <em style="color:var(--gold-light)">logis dan efektif</em>.
+      </div>
+      <button class="tujuan-btn" onclick="closeTujuan()">⚔️ Siap Berpetualang!</button>
+    </div>
+  </div>
+
 </body>
 
 </html>
